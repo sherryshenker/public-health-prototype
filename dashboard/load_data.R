@@ -102,9 +102,8 @@ load_data <- function() {
   return(data)
 }
 
-#summarize_cleanstat <- function() {
-#  cleanstat <- tbl(con, dbplyr::in_schema('"public-health"','"cleanstat"')) %>%
-#    filter(Year ==  "2018") %>%
-#    filter(Quarter == "Q3") %>%
-#    collect()
-#}
+summarize_cleanstat <- function() {
+  cleanstat <- read_civis("public_health.cleanstat","City of Los Angeles - Postgres") %>%
+    filter(Year ==  "2018") %>%
+    filter(Quarter == "Q3") 
+}
